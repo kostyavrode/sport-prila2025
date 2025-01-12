@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using UI.Dates;
 
 public class NewWorkoutScreen : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class NewWorkoutScreen : MonoBehaviour
     public Button openCalendarButton;
     private const string WorkoutsKey = "Workouts";
     private List<ExerciseData> exercises = new List<ExerciseData>();
-    private string selectedDate = "";
+    public DatePicker selectedDate;
 
     void Start()
     {
@@ -64,22 +65,23 @@ public class NewWorkoutScreen : MonoBehaviour
     {
         WorkoutData workoutData = new WorkoutData(workoutNameField.text, exercises);
         WorkoutManager.instance.SaveWorkout(workoutData);
+        Debug.Log(selectedDate.SelectedDate);
         ClearAllFields();
     }
 
-    void OpenCalendar()
-    {
-        // Здесь вы можете вызвать ваш UI-календарь.
-        // После выбора даты вызывайте метод SetSelectedDate.
-        SetSelectedDate(System.DateTime.Now.ToString("yyyy-MM-dd")); // Пример, замените на реальную дату из календаря
-    }
+    //void OpenCalendar()
+    //{
+    //    // Здесь вы можете вызвать ваш UI-календарь.
+    //    // После выбора даты вызывайте метод SetSelectedDate.
+    //    SetSelectedDate(System.DateTime.Now.ToString("yyyy-MM-dd")); // Пример, замените на реальную дату из календаря
+    //}
 
-    public void SetSelectedDate(string date)
-    {
-        selectedDate = date;
-        selectedDateText.text = $"Дата тренировки: {date}";
-        UpdateSaveButtonState();
-    }
+    //public void SetSelectedDate(string date)
+    //{
+    //    selectedDate = date;
+    //    selectedDateText.text = $"Дата тренировки: {date}";
+    //    UpdateSaveButtonState();
+    //}
 
     void UpdateSaveButtonState()
     {
@@ -89,7 +91,7 @@ public class NewWorkoutScreen : MonoBehaviour
     void ClearAllFields()
     {
         workoutNameField.text = "";
-        selectedDate = "";
+        //selectedDate;
         exercises.Clear();
 
         foreach (Transform child in exerciseListParent)
