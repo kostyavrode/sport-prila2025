@@ -63,25 +63,11 @@ public class NewWorkoutScreen : MonoBehaviour
 
     public void SaveWorkout()
     {
-        WorkoutData workoutData = new WorkoutData(workoutNameField.text, exercises);
+        WorkoutData workoutData = new WorkoutData(workoutNameField.text, exercises, selectedDate.SelectedDate);
         WorkoutManager.instance.SaveWorkout(workoutData);
         Debug.Log(selectedDate.SelectedDate);
         ClearAllFields();
     }
-
-    //void OpenCalendar()
-    //{
-    //    // Здесь вы можете вызвать ваш UI-календарь.
-    //    // После выбора даты вызывайте метод SetSelectedDate.
-    //    SetSelectedDate(System.DateTime.Now.ToString("yyyy-MM-dd")); // Пример, замените на реальную дату из календаря
-    //}
-
-    //public void SetSelectedDate(string date)
-    //{
-    //    selectedDate = date;
-    //    selectedDateText.text = $"Дата тренировки: {date}";
-    //    UpdateSaveButtonState();
-    //}
 
     void UpdateSaveButtonState()
     {

@@ -19,6 +19,8 @@ namespace UI.Dates
         [SerializeField]
         private TextMeshProUGUI m_HeaderText;
 
+        public bool isNeedToDisableHeader;
+
         public TextMeshProUGUI HeaderText
         {
             get
@@ -27,6 +29,10 @@ namespace UI.Dates
                 {
                     if (oldHeaderText == null)
                     {
+                        if (isNeedToDisableHeader)
+                        {
+                            gameObject.SetActive(false);
+                        }    
                         Debug.LogError("[DatePicker] An error ocurred while upgrading to TextMesh Pro - unable to locate original header text element.");
                         return null;
                     }

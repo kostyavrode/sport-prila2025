@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UI.Dates;
 
 [System.Serializable]
 public class ExerciseData
@@ -21,14 +23,18 @@ public class ExerciseData
 public class WorkoutData
 {
     public string WorkoutName;
+    public SerializableDate date;
     public List<ExerciseData> Exercises = new List<ExerciseData>();
 
-    public WorkoutData(string workoutName, List<ExerciseData> exercise)
+
+    public WorkoutData(string workoutName, List<ExerciseData> exercise, SerializableDate serializableDate)
     {
+
         WorkoutName = workoutName;
         foreach(ExerciseData ex in exercise)
         {
             Exercises.Add(ex);
         }
+        date = serializableDate;
     }
 }

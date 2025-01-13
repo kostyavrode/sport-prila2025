@@ -38,7 +38,7 @@ public class MainButtonsController : MonoBehaviour
             SetImageAlpha(1, starterTrainigsButton);
             SetImageAlpha(0.7f, profileButton);
         }
-        else
+        else if (profileButton.gameObject.activeSelf)
         {
             SetImageAlpha(0.7f, mainButton);
             SetImageAlpha(0.7f, addTrainingButton);

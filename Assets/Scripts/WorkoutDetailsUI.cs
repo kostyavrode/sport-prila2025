@@ -1,9 +1,13 @@
 using UnityEngine;
+using TMPro;
 
 public class WorkoutDetailsUI : MonoBehaviour
 {
     public GameObject trainingPartPrefab;
     public Transform trainingPartsContainer;
+
+    public TMP_Text trainingName;
+    public TMP_Text trainingDate;
 
     public void ShowWorkoutDetails(WorkoutData workout)
     {
@@ -11,6 +15,9 @@ public class WorkoutDetailsUI : MonoBehaviour
         {
             Destroy(child.gameObject); // Очистка предыдущих данных
         }
+
+        trainingDate.text=workout.date.ToString().Split(' ')[0];
+        trainingName.text = workout.WorkoutName;
 
         foreach (var exercise in workout.Exercises)
         {
