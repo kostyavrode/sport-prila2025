@@ -41,6 +41,8 @@ namespace UI.Dates
                     VisibleDate = value;
                 }
 
+                WorkoutListUI.instance.CheckButtonsForDate(SelectedDate);
+
                 UpdateInputFieldText();
                 if (Config.Misc.CloseWhenDateSelected) Hide();
             }

@@ -105,5 +105,6 @@ public class WorkoutCreator : MonoBehaviour
         WorkoutDetailsUI workoutDetailsUI = Instantiate(workoutDetailsUIPrefab, container);
         workoutDetailsUI.ShowWorkoutDetails(workout);
         workoutDetailsUI.transform.localPosition = Vector3.zero;
+        workoutDetailsUI.GetComponent<WindowManager>().OpenWindow();
     }
 }
